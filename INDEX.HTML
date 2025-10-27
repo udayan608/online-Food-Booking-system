@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodify – Online Food Delivery</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <header class="navbar">
+    <div class="logo">🍕 Foodify</div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#offers">Offers</a>
+      <a href="#track-order">Track Order</a> 
+      <a href="#cart">Cart</a>
+      <button class="auth-btn" id="login-logout-btn">Login</button>
+    </nav>
+  </header>
+
+  
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Delicious food, delivered fast!</h1>
+      <p>Find your favorite dishes and order them anytime, anywhere.</p>
+      <div class="search-container">
+        <input type="text" id="search" placeholder="Search for food or restaurants...">
+        <button class="search-btn">Search</button>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="menu" class="menu">
+    <h2>🍽️ Our Popular Menu</h2>
+    <div class="menu-grid">
+
+      <div class="food-card">
+        <img src="pizza.webp" alt="Pizza Margherita">
+        <h3>Pizza Margherita</h3>
+        <p>Cheesy delight with fresh basil and tomato.</p>
+        <span>₹299</span>
+        <button class="order-btn">Add to Cart</button>
+      </div>
+
+      <div class="food-card">
+        <img src="burger.webp" alt="Classic Burger">
+        <h3>Classic Burger</h3>
+        <p>Juicy grilled beef patty with melted cheese.</p>
+        <span>₹199</span>
+        <button class="order-btn">Add to Cart</button>
+      </div>
+
+      <div class="food-card">
+        <img src="Hyderabadi-Chicken-Biryani.webp" alt="Hyderabadi Biryani">
+        <h3>Hyderabadi Biryani</h3>
+        <p>Authentic spiced rice with tender chicken.</p>
+        <span>₹249</span>
+        <button class="order-btn">Add to Cart</button>
+      </div>
+
+      <div class="food-card">
+        <img src="pasta.webp" alt="Creamy Alfredo Pasta">
+        <h3>Creamy Alfredo Pasta</h3>
+        <p>Rich white sauce pasta with mushrooms.</p>
+        <span>₹259</span>
+        <button class="order-btn">Add to Cart</button>
+      </div>
+
+      <div class="food-card">
+        <img src="sushi.webp" alt="Sushi Platter">
+        <h3>Sushi Platter</h3>
+        <p>Fresh salmon and tuna rolls served with soy.</p>
+        <span>₹499</span>
+        <button class="order-btn">Add to Cart</button>
+      </div>
+
+      <div class="food-card">
+        <img src="ice cream.webp" alt="Strawberry Ice Cream">
+        <h3>Strawberry Ice Cream</h3>
+        <p>Refreshing strawberry scoops in a waffle cone.</p>
+        <span>₹149</span>
+        <button class="order-btn">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="offers" class="offers">
+    <h2>🎉 Exclusive Offers</h2>
+    <div class="offer-card">
+      <h3>Flat 20% Off!</h3>
+      <p>Use code **FOODIFY20** on all orders above ₹500.</p>
+      <a href="#menu" class="offer-btn">Order Now</a>
+    </div>
+    <div class="offer-card">
+      <h3>Free Delivery</h3>
+      <p>First three orders get free delivery automatically!</p>
+      <a href="#menu" class="offer-btn">Find Food</a>
+    </div>
+  </section>
+
+
+  <section id="track-order" class="track-order">
+    <h2>🚚 Track Your Order</h2>
+    <div class="tracking-form">
+      <input type="text" id="order-id" placeholder="Enter Order ID (e.g., FOO-101)">
+      <button id="track-btn">Track Order</button>
+    </div>
+    <div id="tracking-status" class="status-box">
+      <p>Enter an Order ID and hit 'Track Order' to see the status!</p>
+    </div>
+  </section>
+
+  
+  <section id="cart" class="cart">
+    <h2>🛒 Your Cart</h2>
+    <p>Your items will appear here after you click 'Add to Cart'. (Simulated)</p>
+    <div id="cart-items">
+      <p class="empty-cart">Your cart is currently empty.</p>
+    </div>
+    <button class="checkout-btn" style="display: none;">Proceed to Checkout</button>
+  </section>
+
+
+  <footer class="footer">
+    <p>© 2025 Foodify. All rights reserved.</p>
+  </footer>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn login-close-btn">&times;</span>
+      <h2>Login to Foodify</h2>
+      <p>Use Username: **admin** and Password: **password123**</p>
+      <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" class="auth-btn">Sign In</button>
+        <p id="login-message" class="message-text"></p>
+      </form>
+    </div>
+  </div>
+  
+  <div id="bill-modal" class="modal">
+    <div class="modal-content bill-content">
+        <span class="close-btn bill-close-btn">&times;</span>
+        <h2>✅ Order Confirmed!</h2>
+        <p>Your tracking ID is: <strong id="bill-order-id"></strong></p>
+        <hr>
+        
+        <div class="bill-details-container">
+            <h3>Your Receipt</h3>
+            <div id="bill-items-summary">
+                </div>
+
+            <div class="bill-summary">
+                <div class="bill-line"><span>Subtotal:</span> <span id="bill-subtotal"></span></div>
+                <div class="bill-line"><span>Delivery Fee:</span> <span id="bill-delivery">₹40.00</span></div>
+                <div class="bill-line"><span>Tax (5% GST):</span> <span id="bill-tax"></span></div>
+                <div class="bill-line total-line"><span>Total Paid:</span> <span id="bill-total"></span></div>
+            </div>
+            
+            <p class="bill-footer">Thank you for ordering with Foodify!</p>
+            <a href="#track-order" class="offer-btn track-from-bill-btn">Track Order Now</a>
+        </div>
+    </div>
+  </div>
+
+  <div id="cart-notification" class="notification-toast">Item added to cart!</div>
+  <script src="script.js"></script>
+</body>
+</html>
